@@ -1,15 +1,19 @@
 {
-  "name": "@deskpro-apps/my-app",
-  "title": "My App",
-  "description": "My Deskpro app",
+  "name": "@deskpro-apps/calendly",
+  "title": "Calendly",
+  "description": "Integrate Calendly with Deskpro",
   "version": "0.0.13",
   "scope": "agent",
   "isSingleInstall": false,
   "hasDevMode": true,
-  "targets": [{ "target": "ticket_sidebar", "entrypoint": "index.html" }],
+  "targets": [
+    { "target": "ticket_sidebar", "entrypoint": "index.html#/ticket" },
+    { "target": "user_sidebar", "entrypoint": "index.html#/user" },
+    { "target": "global", "entrypoint": "index.html#/global" }
+  ],
   "settings": {
-    "example": {
-      "title": "Example Setting",
+    "todo_needs_oauth2": {
+      "title": "@todo: OAuth",
       "description": "Example backend only setting",
       "type": "string",
       "isRequired": false,
@@ -19,7 +23,7 @@
   "proxy": {
     "whitelist": [
       {
-        "url": "https://jsonplaceholder.typicode.com/.*",
+        "url": "https://api.calendly.com/.*",
         "methods": ["GET"],
         "timeout": 20
       }
